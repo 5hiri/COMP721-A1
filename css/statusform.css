@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 2em;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+h1 {
+    color: #79c0ff;
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-weight: 300;
+}
+.content {
+    width: 50%;
+}
+
+/* Form Container */
+form.statusform {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em; /* Increased gap between sections */
+    margin: 1em auto;
+    width: 90%; /* Adjusted width */
+    max-width: 600px; /* Adjusted max-width */
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 2em;
+    background-color: #21262d;
+}
+
+/* Form Row for aligning label and input side by side */
+.form-row {
+    display: flex;
+    align-items: center; /* Vertically align label and input */
+    gap: 0.5em; /* Space between label and input */
+    margin-bottom: -0.6em; /* Space below each row */
+}
+
+.form-row label {
+    flex: 0 0 100px; /* Fixed width for labels */
+    text-align: right;
+    color: #c9d1d9;
+    padding-right: 0.5em; /* Add padding to the right of the label text */
+}
+
+.form-row input[type="text"],
+.form-row input[type="date"] {
+    flex: 1; /* Allow input to take remaining space */
+}
+
+/* General Input Styling (Text, Date) */
+input[type="text"],
+input[type="date"] {
+    padding: 0.5em 0.8em;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-size: 1em;
+    line-height: 1.5;
+    box-sizing: border-box;
+    color-scheme: dark; /* Hint to browser it's a dark context */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+/* Style the calendar icon in WebKit browsers */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) brightness(2); /* Try inverting and adjusting brightness */
+    cursor: pointer;
+}
+
+/* Radio Button & Checkbox Sections */
+form.statusform .radio-buttons,
+form.statusform .permissions {
+    /* gap: 0.5em; */ /* Remove gap if using margin below */
+    padding: 1em;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background-color: #2a2f37; /* Slightly different background for grouping */
+}
+
+form.statusform .radio-buttons p,
+form.statusform .permissions p {
+    margin: 0 0 0.8em 0;
+    font-weight: 600;
+    color: #c9d1d9;
+}
+
+form.statusform .radio-buttons div,
+form.statusform .permissions div {
+    margin-bottom: 0.5em; /* Space below each option */
+}
+
+form.statusform .radio-buttons input[type="radio"],
+form.statusform .permissions input[type="checkbox"] {
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+form.statusform .radio-buttons label,
+form.statusform .permissions label {
+    cursor: pointer;
+    color: #c9d1d9;
+    vertical-align: middle;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    background-color: #238636;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
+    display: block; /* Make button take full width */
+    width: 100%;
+    margin-top: 1em;
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background-color: #2ea043;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+/* Error Message Styling */
+.error-container {
+    width: 90%; /* Match form width */
+    max-width: 500px; /* Match form max-width */
+    margin: 0.2em auto; /* Center below form */
+    padding: 0.2em;
+    border-radius: 6px;
+}
+
+.error-container p.error {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+}
+
+.error-container p.error:last-child {
+    margin-bottom: 0;
+}
+
+/* Optional: Success Message Styling */
+.error-container p.success {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    text-align: center;
+    border: 1px solid #c3e6cb;
+    padding: 0.75em 1.25em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+}
