@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Status Search Page</title>
+        <link rel="stylesheet" href="style/about.css">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <body>
+        <div class="content">
+            <h1>Status Posting System</h1>
+
+            <div class="report">
+                <h1>Report</h1>
+                <div class="questions">
+                    <p class="question">What special features have you done or attempted in creating the website?</p>
+                    <p class="answer">Implemented server-side pagination for the status search results page. When the number of results exceeds a set limit per page (3 rows of 4 items), the results are split across multiple pages.</p>
+                    <p class="answer">Added 'Previous' and 'Next' navigation buttons to allow users to browse through the paginated search results.</p>
+                    <p class="answer">Added a 'Delete' button for each status displayed in the search results, allowing users to remove specific status entries from the database after confirmation.</p>
+                    <p class="answer">Ensured that the status posting form retains user input if server-side validation fails, preventing users from having to re-enter all data.</p>
+                    <p class="answer">Included a wildcard search feature: entering '*' in the search bar retrieves all status records from the database.</p>
+                    <p class="question">Which part(s) did you have trouble with?</p>
+                    <p class="answer">Initially, I faced difficulties establishing a stable connection to the AUT database server. Troubleshooting the connection parameters and ensuring the credentials were correct took some time.</p>
+                    <p class="answer">Implementing the pagination logic correctly, specifically handling the state between page loads (maintaining the current page number and search term while resetting the page for new searches), required careful state management using PHP sessions and URL parameters.</p>
+                    <p class="question">What would you like to do better next time?</p>
+                    <p class="answer">I would aim for better time management. Allocating more consistent time throughout the project duration, rather than concentrating the work towards the end, would likely lead to a less stressful process and potentially allow for more features or refinement.</p>
+                    <p class="question">What you have learnt along the way? Did you use any references or resources during this project? If so, please include the sources.</p>
+                    <p class="answer">This project provided practical experience in using PHP for server-side web development, including handling form submissions (POST/GET), performing data validation, interacting with a MySQL database (connecting, querying, inserting, deleting results), and managing user state with sessions.</p>
+                    <p class="answer">I primarily consulted online documentation and examples, particularly from W3Schools (www.w3schools.com) for PHP syntax and function usage, and the official PHP documentation (www.php.net) for specific function details.</p>
+                </div>
+            </div>
+
+            <button class="reset_db_button" onclick="confirmDeleteDB()">Reset Database</button>
+            <script>
+                function confirmDeleteDB() {
+                    if (confirm("Are you sure you want to DROP the database table? This action is irreversible and will delete all data and the table structure.")) {
+                        window.location.href = "resetdb.php";
+                    }
+                }
+            </script>
+
+
+            <div class="urls">
+                <div class="left">
+                    <a href="index.html">Home</a>
+                    <a href="poststatusform.php">Post a new status</a>
+                </div>
+                <div class="right">
+                    <a class="align-right" href="searchstatusform.html">Search Status</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,169 @@
+form.search-form {
+    display: table;
+    flex-direction: column;
+    gap: 1.2em;
+    padding: 1em;
+    background-color: #2a2f37;
+    border: 1px solid #2b2e32;
+    border-radius: 6px;
+    margin: 2em auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+form.search-form input[type="text"] {
+    padding: 0.5em 0.8em;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    margin-right: 0.5em;
+    min-width: 350px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    box-sizing: border-box;
+    color-scheme: dark; /* Hint to browser it's a dark context */
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+input[type="submit"] {
+    padding: 0.3em 0.8em;
+    border: 0.2em solid #444e5a;
+    border-radius: 6px;
+    margin-right: 0.5em;
+    box-sizing: border-box;
+    color-scheme: dark;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #e7e9ec; /* Light gray for text */
+    cursor: pointer;
+    background-color: #444e5a;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+    transition: background-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #6f7176;
+    border-color: #b3b6ba;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.649);
+}
+
+form.search-form label {
+    color: #c9d1d9; /* Light gray for text */
+    font-size: 1.15em; /* Consistent font size */
+    margin-right: 0.5em;
+    font-weight: bold;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: #2a2f37; /* Slightly different background for grouping */
+    border-radius: 6px;
+    border: 1px solid #2b2e32;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.search-results h2 {
+    color: #6cb2eb; /* Lighter blue for heading */
+    text-align: left;
+    font-weight: bold;
+}
+
+.result-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 1em; /* Space between items */
+    margin-top: 1em;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
+    background-color: #21262d; /* Darker background for individual items */
+    border-radius: 6px;
+    border: 1px solid #2b2e32;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    margin-bottom: 0.1em; /* Space between items */
+    color: #e7e9ec; /* Light gray for text */
+    font-size: 1em; /* Consistent font size */
+    line-height: 1.2; /* Consistent line height */
+    text-align: left; /* Align text to the left */
+    min-width: 20%;
+    max-width: 20%;
+}
+
+.result-item h3 {
+    font-size: 1.2em;
+}
+
+.result-item p {
+    margin: 0.1em 0; /* Reduced spacing between lines */
+    line-height: 1.2; /* Adjusted line height */
+}
+
+.result-item .delete-button {
+    background-color: #c10000; /* Red color for delete button */
+    color: #e5dddd; /* White text color */
+    font-weight: bold; /* Bold text */
+    border: none; /* No border */
+    padding: 0.5em 1em; /* Padding inside the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.2s ease-in-out; /* Smooth transition for hover effect */
+    margin-top: auto; /* Align to the bottom of the item */
+}
+
+.result-item .delete-button:hover {
+    background-color: #ff0000; /* Lighter red on hover */
+}
+
+.pagination {
+    display: flex;
+    justify-content: left;
+    gap: 1em; /* Space between pagination items */
+    margin-top: 2em; /* Space above pagination */
+}
+
+.pagination a.active {
+    background-color: #535d66; /* Active page color */
+    border-color: #787f88; /* Active border color */
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.649); /* Shadow for active page */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.pagination a.active:hover {
+    background-color: #77969f; /* Hover color for active page */
+    border-color: #9faeb6; /* Hover border color for active page */
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.649); /* Shadow for active page on hover */
+}
+
+.pagination a.disabled {
+    color: #6f7176; /* Disabled text color */
+    background-color: #4b4d50; /* Disabled background color */
+    border-color: #4b4d50; /* Disabled border color */
+    box-shadow: none; /* No shadow for disabled page */
+    opacity: 0.5; /* Reduced opacity for disabled page */
+    pointer-events: none; /* Disable interaction */
+    cursor: not-allowed; /* Not allowed cursor for disabled page */
+    text-decoration: none;
+}
+
+.pagination a {
+    padding: 0.3em 0.8em;
+    border: 1px solid #444e5a;
+    border-radius: 6px;
+    color: #e7e9ec; /* Light gray for text */
+    background-color: #444e5a;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+    transition: background-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+}

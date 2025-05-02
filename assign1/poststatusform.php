@@ -14,6 +14,15 @@ $shareOption = 'university'; // Default value for radio
 $permissions = []; // Default for checkboxes
 $pattern = '/^[a-zA-Z0-9,.!? ]+$/';
 
+if (isset($_SESSION['form_data'])) {
+    $formData = $_SESSION['form_data'];
+    $statusCode = $formData['statusCode'];
+    $status = $formData['status'];
+    $dateValue = $formData['dateValue'];
+    $shareOption = $formData['shareOption'];
+    $permissions = $formData['permissions'];
+}
+
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // --- Validation ---
@@ -23,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $shareOption = isset($_POST['share_option']) ? $_POST['share_option'] : 'university';
     $permissions = isset($_POST['permission']) && is_array($_POST['permission']) ? $_POST['permission'] : [];
 
-    // Example Validation: Status Code must start with 'S'
     if (empty($statusCode)) {
         $errors[] = "Status Code is required.";
     } elseif (strlen($statusCode) > 0 && $statusCode[0] !== 'S') {
@@ -36,19 +44,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Status Code can only contain letters, numbers, and the following characters: ,.!?";
     } elseif (empty($dateValue)) {
         $errors[] = "Date is required.";
-        // You might want to reset $dateValue to $currentDate here if it's invalid
-        // $dateValue = $currentDate;
+        $dateValue = $currentDate;
+    } elseif (strlen($statusCode) > 5) {
+        $errors[] = "Status Code must be exactly 5 characters long.";
     }
 
-    // Example Validation: Status cannot be empty
     if (empty($status)) {
         $errors[] = "Status is required.";
     }
 
-    // Add more validation rules here...
-
     // If there are no errors, process the data (e.g., save to database)
-    // For now, we'll just assume processing happens if $errors is empty
     if (empty($errors)) {
         // Store validated data in session
         $_SESSION['form_data'] = [
@@ -57,12 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'dateValue' => $dateValue,
             'shareOption' => $shareOption,
             'permissions' => $permissions
-            // Add any other validated data you need
         ];
 
         // Redirect to the processing script
         header("Location: poststatusprocess.php");
-        exit; // Important: Stop script execution after redirect
+        exit;
     }
 }
 ?>
@@ -71,8 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Post Status Form</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/statusform.css" />
+        <link rel="stylesheet" type="text/css" href="style/statusform.css" />
+        <link rel="stylesheet" type="text/css" href="style/style.css" />
     </head>
     <body>
         <div class="content">
@@ -95,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 
                 <!-- Add Radio Buttons Here -->
-                <div class="radio-buttons"> <!-- Wrap radio buttons for better structure -->
+                <div class="radio-buttons">
                     <p>Share:</p>
                     <input type="radio" id="share_university" name="share_option" value="university" <?php echo ($shareOption === 'university') ? 'checked' : ''; ?>>
                     <label for="share_university">University</label><br>
@@ -109,8 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- End Radio Buttons -->
 
                 <!-- Permission Checklist -->
-                <div class="permissions"> <!-- Wrap checkboxes for better structure -->
-                    <p>Permission:</p> <!-- Use a paragraph for the main label -->
+                <div class="permissions">
+                    <p>Permission:</p>
                     <input type="checkbox" id="perm_like" name="permission[]" value="like" <?php echo (in_array('like', $permissions)) ? 'checked' : ''; ?>>
                     <label for="perm_like">Allow Like</label><br>
 
@@ -130,7 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php endforeach; ?>
                     <?php endif; ?>
                     <?php
-                        // Example: Display success message if form submitted without errors
                         if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)) {
                             echo "<p class=\"success\">Status posted successfully!</p>";
                         }
@@ -140,7 +143,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Submit" />
             </form>
             <div class="urls">
-                <a href="index.php">Return to Home Page</a>
+                <div class="left">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="right">
+                    <a class="align-right" href="searchstatusform.html">Search Status</a>
+                    <a class="align-right" href="about.html">About this assignment</a>
+                </div>
             </div>
         </div>
     </body>

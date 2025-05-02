@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: sans-serif; /* Use a common sans-serif font */
+    font-family: sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -22,6 +22,7 @@ h1 {
     color: #6cb2eb; /* Lighter blue for heading */
     text-align: center;
     margin-bottom: 1em;
+    font-weight: bold;
 }
 
 /* Student Info Styles */
@@ -85,4 +86,24 @@ h1 {
     background-color: #6cb2eb; /* Lighter blue on hover */
     color: #212529; /* Dark text on hover */
     border-color: #90cdf4;
+}
+
+/* Success Message Styling */
+.success {
+    color: #155724; /* Dark green text */
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb; /* Slightly darker green border */
+    padding: 0.75em 1.25em; /* Padding inside the message box */
+    margin-bottom: 1em; /* Space below the message box */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+/* Error Message Styling */
+.error {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Slightly darker red border */
+    padding: 0.75em 1.25em; /* Padding inside the message box */
+    margin-bottom: 1em; /* Space below the message box */
+    border-radius: 4px; /* Slightly rounded corners */
 }

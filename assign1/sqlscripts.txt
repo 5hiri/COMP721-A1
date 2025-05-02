@@ -1,0 +1,31 @@
+-- SQL statements for COMP721-A1 Status Posting System
+
+-- Create the StatusCodes table if it doesn't exist (Used in poststatusform.php/poststatusprocess.php)
+CREATE TABLE IF NOT EXISTS StatusCodes (
+    code VARCHAR(10) PRIMARY KEY,
+    statusinfo VARCHAR(255) NOT NULL,
+    status_date DATE NOT NULL,
+    share_option VARCHAR(20),
+    permissions VARCHAR(100)
+);
+
+-- Sample INSERT statement (for documentation/manual testing)
+-- Note: The actual application (poststatusprocess.php) uses prepared statements like:
+-- INSERT INTO StatusCodes (code, statusinfo, status_date, share_option, permissions) VALUES (?, ?, ?, ?, ?)
+INSERT INTO StatusCodes (code, statusinfo, status_date, share_option, permissions)
+VALUES
+('S0001', 'This is a sample status.', '2025-05-02', 'university', 'like,comments');
+
+-- Sample SELECT statement for searching (Used in searchstatusprocess.php)
+-- Note: The actual application uses variations like SELECT * FROM StatusCodes WHERE statusinfo LIKE '%searchTerm%'
+-- or SELECT * FROM StatusCodes for wildcard search.
+SELECT * FROM StatusCodes WHERE statusinfo LIKE '%sample%';
+
+-- Sample DELETE statement for removing a specific status (Used in deletestatus.php)
+-- Note: The actual application uses prepared statements like:
+-- DELETE FROM StatusCodes WHERE code = ?
+DELETE FROM StatusCodes WHERE code = 'S0001';
+
+-- DROP TABLE statement for resetting the database (Used in resetdb.php)
+-- WARNING: This deletes the entire table structure and all data.
+DROP TABLE StatusCodes;

@@ -1,0 +1,59 @@
+.report {
+    padding: 1em;
+    background-color: #2a2f37;
+    border: 1px solid #2b2e32;
+    border-radius: 6px;
+    margin: 2em auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.report h1 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-align: left; /* Align report heading left */
+    font-size: 1.55em; /* Slightly smaller than main page heading */
+}
+.question {
+    font-weight: bold;
+    color: #adb5bd; /* Lighter color for questions */
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    font-size: 1.25em;
+    text-shadow: rgba(0, 0, 0, 0.534) 2px 4px 2px; /* Subtle shadow for depth */
+}
+.answer {
+    margin-left: 1em; /* Indent answers slightly */
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+}
+
+.reset_db_button {
+    display: block; /* Make it a block element to control margins */
+    margin: 2em auto; /* Center the button with space above/below */
+    padding: 0.8em 1.5em; /* Generous padding */
+    background-color: #dc3545; /* Strong red background */
+    color: white; /* White text */
+    border: 2px solid #b02a37; /* Darker red border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 1.1em; /* Slightly larger font */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Add some letter spacing */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.reset_db_button:hover,
+.reset_db_button:focus {
+    background-color: #c82333; /* Darker red on hover/focus */
+    border-color: #a0202b;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+    transform: translateY(-2px); /* Slight lift effect */
+    outline: none; /* Remove default focus outline */
+}
+
+.reset_db_button:active {
+    background-color: #a0202b; /* Even darker red when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow */
+    transform: translateY(0); /* Reset lift effect */
+}
